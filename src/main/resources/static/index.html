@@ -9,27 +9,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary justify-content-between">
         <a class="navbar-brand" href="#">iBooks Search</a>
-        <form class="form-inline">
-            <input type="text" class="form-control mr-sm-2">
-            <button type="button" class="btn btn-primary">Search</button>
-        </form>
+
+            <form class="form-inline my-2 my-lg-0">
+                <input id = "search-term" type="search" placeholder="Search" class="form-control mr-sm-2">
+                <button id = "search-button" type="button" class="btn btn-primary">Search</button>
+            </form>
+
     </nav>
 
     <div class="container justify-center no-results">
-        <div class="row text-primary bg-light">
-            <p class="text-primary">No results!</p>
+        <div class="jumbotron">
+            <h1 class="display-4">No results</h1>
         </div>
     </div>
 
     <div id = "result-list" class="container">
-        <div class="row list-row">
+        <!--<div class="row list-row">
             <div class="col-sm-2" >
                 <img src="https://is4-ssl.mzstatic.com/image/thumb/Publication128/v4/e2/08/d5/e208d53a-7e00-c378-2831-ca5dcf3d926d/source/100x100bb.jpg"
                     class="figure-img img-fluid rounded">
@@ -46,7 +47,7 @@
             <div class="col-sm-5">2nd book title</div>
             <div class="col-sm-5"><button type="button" float="right" class="btn btn-primary">bUy buy buy</button></div>
 
-        </div>
+        </div>-->
 
     </div>
 
@@ -58,6 +59,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
 
+    <script src="search.js"></script>
 </body>
 
 </html>

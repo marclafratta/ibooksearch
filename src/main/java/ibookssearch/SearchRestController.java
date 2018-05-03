@@ -16,10 +16,10 @@ public class SearchRestController {
     @Autowired
     RestTemplate restTemplate;
 
-    @RequestMapping(value="/search/{searchTerms}", method = RequestMethod.GET)
-    ITunesSearchResponse searchItunes(@PathVariable String searchTerms){
-        System.out.println(searchTerms);
-        String searchUrl = String.format("http://itunes.apple.com/search?term=%s&country=ca&media=ebook", searchTerms);
+    @RequestMapping(value="/search/{searchTerm}", method = RequestMethod.GET)
+    ITunesSearchResponse searchItunes(@PathVariable String searchTerm){
+        System.out.println(searchTerm);
+        String searchUrl = String.format("http://itunes.apple.com/search?term=%s&country=ca&media=ebook", searchTerm);
         System.out.println(searchUrl);
         return restTemplate.getForObject(searchUrl, ITunesSearchResponse.class);
     }

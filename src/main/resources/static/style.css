@@ -2,8 +2,5 @@
     padding: 2em 2em;
 }
 .list-row:nth-of-type(odd){
-    background: #f8f9fa
-}
-.no-results{
-    display: none;
+    background: #f8f9fa;
 }
