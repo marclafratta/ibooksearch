@@ -20,7 +20,6 @@ public class SearchRestController {
     ITunesSearchResponse searchItunes(@PathVariable String searchTerm){
         System.out.println(searchTerm);
         String searchUrl = String.format("http://itunes.apple.com/search?term=%s&country=ca&media=ebook", searchTerm);
-        System.out.println(searchUrl);
         return restTemplate.getForObject(searchUrl, ITunesSearchResponse.class);
     }
 }
