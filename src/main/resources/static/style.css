@@ -4,3 +4,9 @@
 .list-row:nth-of-type(odd){
     background: #f8f9fa;
 }
+.buy-button{
+    margin-top: 1em;
+}
+.cover-image{
+    width: 100%;
+}

@@ -1,5 +1,3 @@
-let myRequest = new Request('/search/dooodadddddd');
-
 let loadResults = function (searchTerm) {
     
     let myRequest = new Request(`/search/${searchTerm}`)
@@ -50,20 +48,18 @@ let buildElement = function (bookinfo){
     let row  = document.createElement('div')
     row.className = "row list-row";
 
-    let firstCol = `<div class = "col-sm-2"><img src=${bookinfo.artworkUrl100}></div>`
+    let firstCol = `<div class = "col-sm-2"><img class="cover-image" src=${bookinfo.artworkUrl100}><br>
+    <a float="right" class="btn btn-primary buy-button" href="${bookinfo.trackViewUrl}">Buy</a></div>`
     row.innerHTML += firstCol
 
     let releaseDateObj = new Date(bookinfo.releaseDate)
     let secondCol = `<div class = "col-sm-4"><h4>${bookinfo.trackName}</h4>
-    <b>${bookinfo.artistName}</b><p>${bookinfo.genres[0]}<br>${releaseDateObj.toDateString()}</p>
-    </div>`
+    <b>${bookinfo.artistName}</b><p>${bookinfo.genres[0]}<br>${releaseDateObj.toDateString()}<br>
+    ${bookinfo.formattedPrice}</p></div>`
     row.innerHTML += secondCol
 
-    let thirdCol = `<div class = "col-sm-4">${bookinfo.formattedPrice}</div>`
+    let thirdCol = `<div class = "col-sm-6">${bookinfo.description}</div>`
     row.innerHTML += thirdCol
-
-    let fourthCol = `<div class="col-sm-2"> <a float="right" class="btn btn-primary" href="${bookinfo.trackViewUrl}">Buy</a></div>`
-    row.innerHTML += fourthCol
 
     let resultList = document.querySelector("#result-list")
     resultList.appendChild(row)
