@@ -44,17 +44,26 @@ let loadResults = function (searchTerm) {
 }
 
 let buildElement = function (bookinfo){
+
+    console.log(bookinfo)
+
     let row  = document.createElement('div')
     row.className = "row list-row";
 
     let firstCol = `<div class = "col-sm-2"><img src=${bookinfo.artworkUrl100}></div>`
     row.innerHTML += firstCol
 
-    let secondCol = `<div class = "col-sm-5">${bookinfo.trackName}</div>`
+    let releaseDateObj = new Date(bookinfo.releaseDate)
+    let secondCol = `<div class = "col-sm-4"><h4>${bookinfo.trackName}</h4>
+    <b>${bookinfo.artistName}</b><p>${bookinfo.genres[0]}<br>${releaseDateObj.toDateString()}</p>
+    </div>`
     row.innerHTML += secondCol
 
-    let thirdCol = `<div class="col-sm-5"> <a float="right" class="btn btn-primary" href="${bookinfo.trackViewUrl}">Buy</a></div>`
+    let thirdCol = `<div class = "col-sm-4">${bookinfo.formattedPrice}</div>`
     row.innerHTML += thirdCol
+
+    let fourthCol = `<div class="col-sm-2"> <a float="right" class="btn btn-primary" href="${bookinfo.trackViewUrl}">Buy</a></div>`
+    row.innerHTML += fourthCol
 
     let resultList = document.querySelector("#result-list")
     resultList.appendChild(row)
