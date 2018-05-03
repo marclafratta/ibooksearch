@@ -46,7 +46,16 @@ let loadResults = function (searchTerm) {
 let buildElement = function (bookinfo){
     let row  = document.createElement('div')
     row.className = "row list-row";
-    row.textContent = bookinfo.trackName
+
+    let firstCol = `<div class = "col-sm-2"><img src=${bookinfo.artworkUrl100}></div>`
+    row.innerHTML += firstCol
+
+    let secondCol = `<div class = "col-sm-5">${bookinfo.trackName}</div>`
+    row.innerHTML += secondCol
+
+    let thirdCol = `<div class="col-sm-5"> <a float="right" class="btn btn-primary" href="${bookinfo.trackViewUrl}">Buy</a></div>`
+    row.innerHTML += thirdCol
+
     let resultList = document.querySelector("#result-list")
     resultList.appendChild(row)
 }

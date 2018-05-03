@@ -1,9 +1,7 @@
 package ibookssearch;
 
-import ibookssearch.models.ITunesSearchItem;
 import ibookssearch.models.ITunesSearchResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,8 +16,6 @@ public class SearchRestController {
 
     @RequestMapping(value="/search/{searchTerm}", method = RequestMethod.GET)
     ITunesSearchResponse searchItunes(@PathVariable String searchTerm){
-        System.out.println(searchTerm);
-        String searchUrl = String.format("http://itunes.apple.com/search?term=%s&country=ca&media=ebook", searchTerm);
-        return restTemplate.getForObject(searchUrl, ITunesSearchResponse.class);
+        return ITunesSearchResponse.getResponse(searchTerm, restTemplate);
     }
 }

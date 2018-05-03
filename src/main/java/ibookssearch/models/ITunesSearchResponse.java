@@ -3,12 +3,12 @@ package ibookssearch.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-
 public class ITunesSearchResponse {
+
+    private static final String ENDPOINT_TEMPLATE = "http://itunes.apple.com/search?term=%s&country=ca&media=ebook";
 
     public ITunesSearchResponse(){
         //for json
@@ -40,5 +40,11 @@ public class ITunesSearchResponse {
                 "resultCount=" + resultCount +
                 ", results=" + results +
                 '}';
+    }
+
+    public static ITunesSearchResponse getResponse(String searchTerm, RestTemplate restTemplate){
+        String completeEndpoint = String.format(ENDPOINT_TEMPLATE, searchTerm);
+
+        return restTemplate.getForObject(completeEndpoint, ITunesSearchResponse.class);
     }
 }

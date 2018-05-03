@@ -37,8 +37,7 @@
     <div id = "result-list" class="container">
         <!--<div class="row list-row">
             <div class="col-sm-2" >
-                <img src="https://is4-ssl.mzstatic.com/image/thumb/Publication128/v4/e2/08/d5/e208d53a-7e00-c378-2831-ca5dcf3d926d/source/100x100bb.jpg"
-                    class="figure-img img-fluid rounded">
+                <img src="https://is4-ssl.mzstatic.com/image/thumb/Publication128/v4/e2/08/d5/e208d53a-7e00-c378-2831-ca5dcf3d926d/source/100x100bb.jpg">
             </div>
             <div class="col-sm-5">book title</div>
             <div class="col-sm-5"><button type="button" float="right" class="btn btn-primary">bUy buy buy</button></div>
