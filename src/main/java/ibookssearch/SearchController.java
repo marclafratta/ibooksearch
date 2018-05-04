@@ -13,14 +13,8 @@ import java.util.Map;
 @Controller
 public class SearchController {
 
-    @Autowired
-    RestTemplate restTemplate;
-
-    @Value("${application.message:Hello World}")
-    private String message = "Hello World";
-
     @GetMapping("/")
-    public String welcome(Map<String, Object> model) {
+    public String searchPage(Map<String, Object> model) {
         return "search";
     }
 
