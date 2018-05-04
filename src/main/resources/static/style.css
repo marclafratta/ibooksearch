@@ -6,6 +6,8 @@
 }
 .buy-button{
     margin-top: 1em;
+    margin-bottom: 1em;
+    width: 100%;
 }
 .cover-image{
     width: 100%;

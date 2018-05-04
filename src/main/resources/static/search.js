@@ -25,14 +25,14 @@ let loadResults = function (searchTerm) {
             console.log(responseJson)
             console.log("jsjs" + responseJson.resultCount)
 
-            if (responseJson.resultCount > 0){
+            if (responseJson.length > 0){
                 document.querySelector(".no-results").style.display = 'none'
             } else {
                 document.querySelector(".no-results").style.display = ''
             }
 
-            if (responseJson.resultCount > 0){
-                responseJson.results.forEach(function (result) {
+            if (responseJson.length > 0){
+                responseJson.forEach(function (result) {
                     console.log(result.trackName)
                     buildElement(result)
                 })
@@ -48,14 +48,14 @@ let buildElement = function (bookinfo){
     let row  = document.createElement('div')
     row.className = "row list-row";
 
-    let firstCol = `<div class = "col-sm-2"><img class="cover-image" src=${bookinfo.artworkUrl100}><br>
-    <a float="right" class="btn btn-primary buy-button" href="${bookinfo.trackViewUrl}">Buy</a></div>`
+    let firstCol = `<div class = "col-sm-2"><img class="cover-image" src=${bookinfo.artworkUrl}><br>
+    <a float="right" class="btn btn-primary buy-button" href="${bookinfo.buyUrl}">Buy</a></div>`
     row.innerHTML += firstCol
 
-    let releaseDateObj = new Date(bookinfo.releaseDate)
-    let secondCol = `<div class = "col-sm-4"><h4>${bookinfo.trackName}</h4>
-    <b>${bookinfo.artistName}</b><p>${bookinfo.genres[0]}<br>${releaseDateObj.toDateString()}<br>
-    ${bookinfo.formattedPrice}</p></div>`
+    let publishDateObj = new Date(bookinfo.publishDate)
+    let secondCol = `<div class = "col-sm-4"><h4>${bookinfo.title}</h4>
+    <b>${bookinfo.author}</b><p>${bookinfo.genre}<br>${publishDateObj.toDateString()}<br>
+    ${bookinfo.price}</p></div>`
     row.innerHTML += secondCol
 
     let thirdCol = `<div class = "col-sm-6">${bookinfo.description}</div>`
